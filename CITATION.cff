@@ -12,6 +12,10 @@ authors:
     given-names: Lyon Ambrosio
 license: MIT
 version: 1.0.0
+doi: 10.5281/zenodo.17504815
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17504815
 repository-code: https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction
 url: https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction
 date-released: 2025-11-02
@@ -34,7 +38,8 @@ preferred-citation:
     - family-names: Djuanda
       given-names: Lyon Ambrosio
   year: 2025
-  url: https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction
+  doi: 10.5281/zenodo.17504815
+  url: https://doi.org/10.5281/zenodo.17504815
   version: 1.0.0
 
 references:

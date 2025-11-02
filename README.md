@@ -1,9 +1,11 @@
 # Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17504815.svg)](https://doi.org/10.5281/zenodo.17504815)
+
 **Author**: Lyon Ambrosio Djuanda  
 **Year**: 2025  
 **License**: MIT  
-**DOI**: (to be updated)
+**DOI**: [10.5281/zenodo.17504815](https://doi.org/10.5281/zenodo.17504815)
 
 For citation formats (BibTeX, EndNote), see `CITATION.cff`.
 
@@ -250,6 +252,8 @@ If you use this code or methodology in your research, please cite:
   title={Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction},
    year={2025},
     publisher = {Zenodo},
+   doi = {10.5281/zenodo.17504815},
+   url = {https://doi.org/10.5281/zenodo.17504815},
    note={Research project with CatBoost achieving best performance for multi-output UKT prediction}
 }
 ```

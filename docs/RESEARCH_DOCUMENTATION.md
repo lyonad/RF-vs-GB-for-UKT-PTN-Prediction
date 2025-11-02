@@ -1,7 +1,7 @@
 # Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction
 
 **Research Documentation for Academic Publication**  
-**DOI**: (to be updated)
+**DOI**: [10.5281/zenodo.17504815](https://doi.org/10.5281/zenodo.17504815)
 
 ---
 
@@ -13,7 +13,9 @@ If you use this work, please cite it:
 @misc{djuanda_2025_ukt_prediction,
    author = {Djuanda, Lyon Ambrosio},
    title = {Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction},
-   year = {2025}
+   year = {2025},
+   doi = {10.5281/zenodo.17504815},
+   url = {https://doi.org/10.5281/zenodo.17504815}
 }
 ```
 
