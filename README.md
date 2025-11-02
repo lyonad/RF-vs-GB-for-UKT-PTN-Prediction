@@ -1,5 +1,9 @@
 # Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction
 
+**Author**: Lyon Ambrosio Djuanda  
+**Year**: 2025  
+**License**: MIT
+
 ## Project Overview
 
 This research project conducts a comprehensive comparative study of Random Forest and Gradient-Boosted Trees (XGBoost, CatBoost, and LightGBM) for predicting Indonesian public university tuition fees (UKT - Uang Kuliah Tunggal) across 11 fee categories with advanced uncertainty quantification. The study implements multi-output quantile regression and conformal prediction to provide both point estimates and reliable prediction intervals.
@@ -246,9 +250,12 @@ python -m pytest tests/test_project.py -v
 If you use this code or methodology in your research, please cite:
 
 ```bibtex
-@misc{ukt_prediction_2025,
+@misc{djuanda_2025_ukt_prediction,
+  author = {Djuanda, Lyon Ambrosio},
   title={Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction},
   year={2025},
+  publisher = {GitHub},
+  url = {https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction},
   note={Research project with CatBoost achieving R² = 0.9620 for multi-output UKT prediction}
 }
 ```
