@@ -100,8 +100,8 @@ UKT-PTN/
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd UKT-PTN
+   git clone https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction.git
+   cd RF-vs-GB-for-UKT-PTN-Prediction
    ```
 
 2. Run the setup script to create the virtual environment and install dependencies:
