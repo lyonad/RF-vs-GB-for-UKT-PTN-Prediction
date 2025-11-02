@@ -35,10 +35,21 @@ Thumbs.db
 desktop.ini
 
 # Data and outputs
-data/
+# Keep original dataset, ignore processed data
+Data/processed_data.csv
+
+# Keep results and visualizations, ignore temporary files
+results/*.npy
+results/*.pkl
+results/temp/
+
+# Ignore all model files (too large)
+models/*.pkl
+models/*.joblib
+models/*.h5
+
+# Ignore output directories
 output/
-results/
-models/
 
 # IDE
 .vscode/
