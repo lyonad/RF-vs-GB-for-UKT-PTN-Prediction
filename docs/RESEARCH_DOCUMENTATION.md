@@ -1,8 +1,22 @@
 # Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction
 
-**Research Documentation for Academic Publication**
+**Research Documentation for Academic Publication**  
+**DOI**: (to be updated)
 
 ---
+
+### Citation
+
+If you use this work, please cite it:
+
+```bibtex
+@misc{djuanda_2025_ukt_prediction,
+   author = {Djuanda, Lyon Ambrosio},
+   title = {Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction},
+   year = {2025}
+}
+```
+
 
 ## Table of Contents
 
@@ -128,44 +142,42 @@ To compare the performance of Random Forest and gradient-boosted tree methods (X
 - **Publisher**: Irvi Aini (Kaggle)
 - **Platform**: Kaggle Datasets
 - **License**: MIT License
-- **Last Updated**: September 2024 (2 months prior to study)
-- **URL**: [Kaggle Dataset](https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia)
-- **Coverage**: Indonesian public university (PTN) UKT data for academic years 2023/2024, 2024/2025, and 2025/2026
+- **URL**: [Kaggle Dataset](https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3)
+- **Coverage**: Indonesian public university (PTN) UKT data for the 2025/2026 academic year
 - **Format**: CSV file
-- **Size**: 702 records
 - **Access**: Publicly available under MIT License
 
 #### 4.1.2 Features (Input Variables)
 
 | Feature | Type | Description | Unique Values |
 |---------|------|-------------|---------------|
-| `Universitas` | Categorical | University name | 12 universities |
+| `Universitas` | Categorical | University name | — |
 | `Program` | Categorical | Program level | D3, D4, S1 (Diploma 3, Diploma 4, Bachelor) |
-| `Tahun` | Categorical | Academic year | 2023/2024, 2024/2025, 2025/2026 |
+| `Tahun` | Categorical | Academic year | 2025/2026 |
 | `Penerimaan` | Categorical | Admission method | SNBP/SNBT (national selection) |
-| `Program_Studi` | Categorical | Study program/major | 378 unique programs |
+| `Program_Studi` | Categorical | Study program/major | — |
 
 **Total Features**: 5 categorical variables
 
 #### 4.1.3 Target Variables (Outputs)
 
-| Target | Description | Range (IDR) | Missing Values |
-|--------|-------------|-------------|----------------|
-| UKT-1 | Lowest fee tier | 0 - 15,000,000 | Sparse (often 0) |
-| UKT-2 | Second tier | 0 - 15,000,000 | Sparse |
-| UKT-3 | Third tier | 1,000,000 - 15,000,000 | 0 |
-| UKT-4 | Fourth tier | Variable | 0 |
-| UKT-5 | Fifth tier | Variable | 0 |
-| UKT-6 | Sixth tier | Variable | 0 |
-| UKT-7 | Seventh tier | Variable | 143 (20.4%) |
-| UKT-8 | Eighth tier | Variable | High |
-| UKT-9 | Ninth tier | Variable | High |
-| UKT-10 | Tenth tier | Variable | High |
-| UKT-11 | Highest tier | Variable | High |
+| Target | Description | Unit | Missing Values |
+|--------|-------------|------|----------------|
+| UKT-1 | Lowest fee tier | IDR | Not specified |
+| UKT-2 | Second tier | IDR | Not specified |
+| UKT-3 | Third tier | IDR | Not specified |
+| UKT-4 | Fourth tier | IDR | Not specified |
+| UKT-5 | Fifth tier | IDR | Not specified |
+| UKT-6 | Sixth tier | IDR | Not specified |
+| UKT-7 | Seventh tier | IDR | Not specified |
+| UKT-8 | Eighth tier | IDR | Not specified |
+| UKT-9 | Ninth tier | IDR | Not specified |
+| UKT-10 | Tenth tier | IDR | Not specified |
+| UKT-11 | Highest tier | IDR | Not specified |
 
 **Total Targets**: 11 multi-output regression targets (UKT-1 to UKT-11)
 
-**Note**: Higher UKT tiers (7-11) have significant missing data as not all universities/programs utilize all tiers.
+**Note**: The dataset contains tuition fee columns for UKT-1 through UKT-11 and admission paths (SNBP/SNBT) for the 2025/2026 academic year.
 
 ### 4.2 Data Preprocessing
 
@@ -767,12 +779,12 @@ This research provides:
 #### 8.1.1 Data Limitations
 
 1. **Sample Size**: 702 records may be insufficient for deep learning approaches
-2. **Missing Data**: 20-50% missing values in higher UKT tiers (7-11) as not all universities implement all 11 tiers
+2. **Missing Data**: Some higher UKT tiers (7–11) may not be used by all universities/programs
 3. **Feature Coverage**: Limited to 5 categorical features available in the dataset; socioeconomic features unavailable
-4. **Temporal Scope**: Only 3 academic years (2023/2024, 2024/2025, 2025/2026)
-5. **Geographic Scope**: Limited to subset of Indonesian public universities included in the Kaggle dataset (12 universities)
-6. **Admission Path**: All records use SNBP/SNBT pathway; no comparison with other admission methods available in dataset
-7. **Data Currency**: Dataset last updated September 2024; may not reflect most recent fee changes
+4. **Temporal Scope**: Focused on the 2025/2026 academic year
+5. **Geographic Scope**: Limited to a subset of Indonesian public universities included in the Kaggle dataset
+6. **Admission Path**: SNBP/SNBT admission pathways are included as provided by the dataset
+7. **Data Currency**: Refer to the dataset's Kaggle page for the most recent update information
 
 #### 8.1.2 Methodological Limitations
 
@@ -945,7 +957,7 @@ This research provides:
 
 ## Appendix A: Data Dictionary
 
-**Dataset Citation**: Aini, I. (2024). *UKT PTN Indonesia - S1, D4, D3*. Kaggle. https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia (MIT License)
+**Dataset Citation**: Aini, I. (2025). *UKT PTN Indonesia - S1, D4, D3*. Kaggle. https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3 (MIT License)
 
 **Dataset Description**: This dataset contains Uang Kuliah Tunggal (UKT) or Single Tuition Fee information for undergraduate (S1), applied bachelor (D4), and diploma (D3) programs at Indonesian public universities (PTN). It includes UKT rates for 11 levels (UKT-1 to UKT-11) and admission paths for the 2025/2026 academic year, with historical data from 2023/2024 and 2024/2025.
 
@@ -955,9 +967,9 @@ This research provides:
 |----------|------|-------------|----------------|
 | Universitas | Categorical | University name | UGM, UI, ITB, IPB, UNPAD, UNDIP, UNS, UNAIR, UB, ITS, UNSRI, UNHAS |
 | Program | Categorical | Educational program level | D3 (Diploma 3), D4 (Diploma 4/Applied Bachelor), S1 (Sarjana/Bachelor) |
-| Tahun | Categorical | Academic year | 2023/2024, 2024/2025, 2025/2026 |
+| Tahun | Categorical | Academic year | 2025/2026 |
 | Penerimaan | Categorical | Admission pathway | SNBP/SNBT (National selection pathway) |
-| Program_Studi | Categorical | Study program/major | Kedokteran (Medicine), Teknik Informatika (Informatics), etc. (378 unique) |
+| Program_Studi | Categorical | Study program/major | e.g., Kedokteran (Medicine), Teknik Informatika (Informatics) |
 
 ### Output Targets
 
@@ -1091,7 +1103,7 @@ unzip ukt-ptn-indonesia.zip -d Data/
 **Dataset Citation**:
 ```
 Aini, I. (2024). UKT PTN Indonesia - S1, D4, D3 [Data set]. 
-Kaggle. https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia
+Kaggle. https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3
 ```
 
 ### To Reproduce Results:

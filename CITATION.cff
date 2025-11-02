@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction"
+abstract: |
+  This repository contains the code and documentation for a comparative study of tree-based ensemble methods
+  (Random Forest, XGBoost, CatBoost, LightGBM) to predict Indonesian public university tuition fees (UKT)
+  across 11 categories using multi-output regression, with uncertainty quantification via quantile regression
+  and conformal prediction. The pipeline includes preprocessing, model training, shared-calibration conformal
+  prediction, evaluation, and visualization, and is accompanied by publication-ready research documentation.
+authors:
+  - family-names: Djuanda
+    given-names: Lyon Ambrosio
+license: MIT
+version: 1.0.0
+repository-code: https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction
+url: https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction
+date-released: 2025-11-02
+keywords:
+  - UKT
+  - Indonesia
+  - tuition fee prediction
+  - multi-output regression
+  - Random Forest
+  - XGBoost
+  - CatBoost
+  - LightGBM
+  - conformal prediction
+  - quantile regression
+
+preferred-citation:
+  type: software
+  title: "Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees"
+  authors:
+    - family-names: Djuanda
+      given-names: Lyon Ambrosio
+  year: 2025
+  url: https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction
+  version: 1.0.0
+
+references:
+  - type: dataset
+    title: "UKT PTN Indonesia - S1, D4, D3"
+    authors:
+      - family-names: Aini
+        given-names: Irvi
+    year: 2025
+    url: https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3
+    notes: MIT License

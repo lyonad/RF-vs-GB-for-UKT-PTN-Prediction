@@ -2,7 +2,10 @@
 
 **Author**: Lyon Ambrosio Djuanda  
 **Year**: 2025  
-**License**: MIT
+**License**: MIT  
+**DOI**: (to be updated)
+
+For citation formats (BibTeX, EndNote), see `CITATION.cff`.
 
 ## Project Overview
 
@@ -20,25 +23,17 @@ This research project conducts a comprehensive comparative study of Random Fores
 
 ## Dataset
 
-**Source**: [UKT PTN Indonesia - S1, D4, D3](https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia) by Irvi Aini (Kaggle)  
-**License**: MIT License  
-**Last Updated**: September 2024
+**Source**: [UKT PTN Indonesia - S1, D4, D3](https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3) by Irvi Aini (Kaggle)  
+**License**: MIT License
 
-The dataset contains 702 records of Indonesian public university (PTN) tuition fees with:
+The dataset contains Indonesian public university (PTN) tuition fee information with:
 
-- **Universitas**: University name (12 universities)
-- **Program**: Program level (S1, D4, D3)
-- **Tahun**: Academic year (2023/2024, 2024/2025, 2025/2026)
-- **Penerimaan**: Admission method (SNBP/SNBT)
-- **Program_Studi**: Study program/major (378 unique programs)
-- **UKT-1 to UKT-11**: 11 tuition fee tiers in Indonesian Rupiah (IDR)
-
-**Dataset Statistics**:
-- Total records: 702
-- Universities: 12
-- Study programs: 378
-- UKT-3 range: 1,000,000 - 15,000,000 IDR
-- Missing values in higher tiers (UKT-7 to UKT-11): 20-50%
+- **Universitas**: University name (PTN)
+- **Program**: Degree program (S1, D4, D3)
+- **Tahun**: Academic year (2025/2026)
+- **Penerimaan**: Admission path (SNBP or SNBT)
+- **Program_Studi**: Study program name
+- **UKT-1 to UKT-11**: Tuition fees for each UKT level in IDR
 
 ## Methodology
 
@@ -253,21 +248,20 @@ If you use this code or methodology in your research, please cite:
 @misc{djuanda_2025_ukt_prediction,
   author = {Djuanda, Lyon Ambrosio},
   title={Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction},
-  year={2025},
-  publisher = {GitHub},
-  url = {https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction},
-  note={Research project with CatBoost achieving R² = 0.9620 for multi-output UKT prediction}
+   year={2025},
+    publisher = {Zenodo},
+   note={Research project with CatBoost achieving best performance for multi-output UKT prediction}
 }
 ```
 
 **Dataset Citation**:
 ```bibtex
-@dataset{aini_2024_ukt,
+@dataset{aini_2025_ukt,
   author = {Aini, Irvi},
   title = {UKT PTN Indonesia - S1, D4, D3},
-  year = {2024},
+   year = {2025},
   publisher = {Kaggle},
-  url = {https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia},
+   url = {https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3},
   note = {MIT License}
 }
 ```
