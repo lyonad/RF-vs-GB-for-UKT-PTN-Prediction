@@ -1,4 +1,4 @@
-# Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction
+# Comparative Study of Gradient-Boosted Trees and Random Forest for Indonesian UKT Prediction with Conformal Prediction and Quantile Regression
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17504815.svg)](https://doi.org/10.5281/zenodo.17504815)
 

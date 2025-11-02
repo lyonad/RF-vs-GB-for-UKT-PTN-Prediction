@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
-title: "Comparative Study of Random Forest and Gradient-Boosted Trees for Predicting Indonesian Public University Tuition Fees with Multi-Output Quantile and Conformal Prediction"
+title: "Comparative Study of Gradient-Boosted Trees and Random Forest for Indonesian UKT Prediction with Conformal Prediction and Quantile Regression"
 abstract: |
   This repository contains the code and documentation for a comparative study of tree-based ensemble methods
   (Random Forest, XGBoost, CatBoost, LightGBM) to predict Indonesian public university tuition fees (UKT)
