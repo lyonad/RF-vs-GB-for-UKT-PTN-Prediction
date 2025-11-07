@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}About - UKT Prediction System{% endblock %}
+
+{% block content %}
+    <div class="container content-page">
+        <h1>About This Project</h1>
+        
+        <p>The UKT Prediction System is a research-based machine learning application designed to predict Indonesian public university tuition fees (Uang Kuliah Tunggal or UKT) across 11 different tiers using advanced ensemble methods and uncertainty quantification techniques.</p>
+
+        <h2>🎯 Project Overview</h2>
+        
+        <p>Indonesian public universities implement a stratified tuition fee system called "Uang Kuliah Tunggal" (UKT), which categorizes students into multiple payment tiers (UKT-1 through UKT-11) based on socioeconomic factors. This system aims to provide equitable access to higher education while maintaining institutional financial sustainability.</p>
+
+        <div class="highlight-box">
+            <strong>Research Purpose:</strong> This project conducts a comprehensive comparative study of Random Forest and Gradient-Boosted Trees (XGBoost, CatBoost, LightGBM) for multi-output UKT prediction with quantile regression and conformal prediction.
+        </div>
+
+        <h2>🔬 Methodology</h2>
+
+        <h3>Machine Learning Models</h3>
+        <ul>
+            <li><strong>Random Forest:</strong> Ensemble of decision trees using bootstrap aggregation</li>
+            <li><strong>XGBoost:</strong> Extreme gradient boosting with regularization</li>
+            <li><strong>CatBoost:</strong> Gradient boosting with ordered boosting and categorical feature handling (Best Model)</li>
+            <li><strong>LightGBM:</strong> Histogram-based gradient boosting for efficiency</li>
+        </ul>
+
+        <h3>Uncertainty Quantification</h3>
+        <ul>
+            <li><strong>Quantile Regression:</strong> Predicts 10th, 50th, and 90th percentiles</li>
+            <li><strong>Conformal Prediction:</strong> Provides distribution-free 90% prediction intervals</li>
+        </ul>
+
+        <h2>📊 Performance Metrics</h2>
+
+        <div class="card" style="margin: 24px 0;">
+            <h3>CatBoost (Best Model) Performance</h3>
+            <ul>
+                <li><strong>R² Score:</strong> 0.9620 (96.2% variance explained)</li>
+                <li><strong>RMSE:</strong> 1.102M IDR</li>
+                <li><strong>MAE:</strong> 449.5K IDR</li>
+                <li><strong>MAPE:</strong> 7.96%</li>
+                <li><strong>Interval Coverage:</strong> 88.91%</li>
+                <li><strong>Within 10% Threshold:</strong> 77.76% of predictions</li>
+            </ul>
+        </div>
+
+        <h2>📚 Data Source</h2>
+
+        <p>This project uses the <strong>UKT PTN Indonesia - S1, D4, D3</strong> dataset, published by Irvi Aini on Kaggle under the MIT License.</p>
+
+        <ul>
+            <li><strong>Source:</strong> <a href="https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3" target="_blank">Kaggle Dataset</a></li>
+            <li><strong>Coverage:</strong> Indonesian public university UKT data for 2025/2026 academic year</li>
+            <li><strong>Universities:</strong> 12 major public universities (PTN)</li>
+            <li><strong>Study Programs:</strong> 378 different programs</li>
+            <li><strong>License:</strong> MIT</li>
+        </ul>
+
+        <h2>👨‍💻 Author</h2>
+
+        <p><strong>Lyon Ambrosio Djuanda</strong></p>
+        <p>This project was developed as part of research on machine learning applications for educational cost prediction.</p>
+
+        <h2>📄 Citation</h2>
+
+        <p>If you use this work in your research, please cite:</p>
+
+        <div class="card" style="margin: 24px 0; background: #f8fafc;">
+            <pre style="margin: 0; font-size: 13px;">@misc{djuanda_2025_ukt_prediction,
+  author = {Djuanda, Lyon Ambrosio},
+  title = {Comparative Study of Random Forest and Gradient-Boosted Trees 
+           for Predicting Indonesian Public University Tuition Fees 
+           with Multi-Output Quantile and Conformal Prediction},
+  year = {2025},
+  doi = {10.5281/zenodo.17504815},
+  url = {https://doi.org/10.5281/zenodo.17504815}
+}</pre>
+        </div>
+
+        <h2>📖 License</h2>
+
+        <p>This project is licensed under the <strong>MIT License</strong>. See the LICENSE file in the repository for details.</p>
+
+        <ul>
+            <li><strong>Project Code:</strong> MIT License</li>
+            <li><strong>Dataset:</strong> MIT License (Irvi Aini, 2025)</li>
+            <li><strong>Third-Party Libraries:</strong> See requirements.txt for individual licenses</li>
+        </ul>
+
+        <h2>🔗 Links</h2>
+
+        <ul>
+            <li><strong>GitHub Repository:</strong> <a href="https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction" target="_blank">RF-vs-GB-for-UKT-PTN-Prediction</a></li>
+            <li><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17504815" target="_blank">10.5281/zenodo.17504815</a></li>
+            <li><strong>Dataset:</strong> <a href="https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3" target="_blank">Kaggle Dataset</a></li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 48px;">
+            <strong>Want to Learn More?</strong>
+            <p>Check out the full research documentation in the <a href="/documentation">Documentation</a> page or visit our <a href="https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction" target="_blank">GitHub repository</a> for the complete source code and research paper.</p>
+        </div>
+    </div>
+
+{% endblock %}

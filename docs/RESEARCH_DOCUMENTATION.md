@@ -153,29 +153,31 @@ To compare the performance of Random Forest and gradient-boosted tree methods (X
 
 | Feature | Type | Description | Unique Values |
 |---------|------|-------------|---------------|
-| `Universitas` | Categorical | University name | — |
+| `Universitas` | Categorical | University name | 12 universities |
 | `Program` | Categorical | Program level | D3, D4, S1 (Diploma 3, Diploma 4, Bachelor) |
 | `Tahun` | Categorical | Academic year | 2025/2026 |
 | `Penerimaan` | Categorical | Admission method | SNBP/SNBT (national selection) |
-| `Program_Studi` | Categorical | Study program/major | — |
+| `Program_Studi` | Categorical | Study program/major | 378 study programs |
 
 **Total Features**: 5 categorical variables
+
+Note: While the dataset contains multiple academic years (2023/2024, 2024/2025, 2025/2026), this study focuses its analysis on the 2025/2026 academic year as stated in Section 4.1.1.
 
 #### 4.1.3 Target Variables (Outputs)
 
 | Target | Description | Unit | Missing Values |
 |--------|-------------|------|----------------|
-| UKT-1 | Lowest fee tier | IDR | Not specified |
-| UKT-2 | Second tier | IDR | Not specified |
-| UKT-3 | Third tier | IDR | Not specified |
-| UKT-4 | Fourth tier | IDR | Not specified |
-| UKT-5 | Fifth tier | IDR | Not specified |
-| UKT-6 | Sixth tier | IDR | Not specified |
-| UKT-7 | Seventh tier | IDR | Not specified |
-| UKT-8 | Eighth tier | IDR | Not specified |
-| UKT-9 | Ninth tier | IDR | Not specified |
-| UKT-10 | Tenth tier | IDR | Not specified |
-| UKT-11 | Highest tier | IDR | Not specified |
+| UKT-1 | Lowest fee tier | IDR | 1 / 702 |
+| UKT-2 | Second tier | IDR | 0 / 702 |
+| UKT-3 | Third tier | IDR | 0 / 702 |
+| UKT-4 | Fourth tier | IDR | 3 / 702 |
+| UKT-5 | Fifth tier | IDR | 3 / 702 |
+| UKT-6 | Sixth tier | IDR | 44 / 702 |
+| UKT-7 | Seventh tier | IDR | 143 / 702 |
+| UKT-8 | Eighth tier | IDR | 337 / 702 |
+| UKT-9 | Ninth tier | IDR | 568 / 702 |
+| UKT-10 | Tenth tier | IDR | 640 / 702 |
+| UKT-11 | Highest tier | IDR | 659 / 702 |
 
 **Total Targets**: 11 multi-output regression targets (UKT-1 to UKT-11)
 
@@ -1079,7 +1081,7 @@ This research provides:
 
 ## Appendix D: Reproducibility Checklist
 
-✅ **Data**: Available publicly on Kaggle (https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia) under MIT License
+✅ **Data**: Available publicly on Kaggle (https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3) under MIT License
 ✅ **Code**: Complete source in `src/` directory
 ✅ **Random Seeds**: Fixed at 42 for all stochastic processes
 ✅ **Environment**: Specified in `requirements.txt`
@@ -1093,18 +1095,18 @@ This research provides:
 **Download Dataset**:
 ```bash
 # Option 1: Download from Kaggle website
-# Visit: https://www.kaggle.com/datasets/irviaini/ukt-ptn-indonesia
+# Visit: https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3
 # Download data.csv and place in Data/ directory
 
 # Option 2: Using Kaggle API (requires Kaggle account and API token)
 pip install kaggle
-kaggle datasets download -d irviaini/ukt-ptn-indonesia
-unzip ukt-ptn-indonesia.zip -d Data/
+kaggle datasets download -d irvifa/ukt-ptn-indonesia-s1-d4-d3
+unzip ukt-ptn-indonesia-s1-d4-d3.zip -d Data/
 ```
 
 **Dataset Citation**:
 ```
-Aini, I. (2024). UKT PTN Indonesia - S1, D4, D3 [Data set]. 
+Aini, I. (2025). UKT PTN Indonesia - S1, D4, D3 [Data set]. 
 Kaggle. https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3
 ```
 

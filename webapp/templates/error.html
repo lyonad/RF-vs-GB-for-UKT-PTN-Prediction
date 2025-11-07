@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Error - UKT Prediction System{% endblock %}
+
+{% block content %}
+    <div class="container content-page">
+        <div class="card" style="text-align: center; padding: 48px; margin-top: 48px;">
+            <div style="font-size: 64px; margin-bottom: 24px;">⚠️</div>
+            <h1 style="color: #ef4444; margin-bottom: 16px;">Error</h1>
+            <p style="font-size: 18px; color: #64748b; margin-bottom: 32px;">{{ error }}</p>
+            
+            <div style="background: #f8fafc; padding: 24px; border-radius: 10px; margin-top: 32px; text-align: left;">
+                <h3 style="margin-bottom: 16px;">Troubleshooting Steps:</h3>
+                <ol style="line-height: 2;">
+                    <li>Make sure you've trained the models by running <code>python src/main.py</code> from the project root</li>
+                    <li>Check that the following files exist:
+                        <ul style="margin-top: 8px;">
+                            <li><code>models/catboost_model.pkl</code></li>
+                            <li><code>results/conformal_predictors.pkl</code> (optional, for intervals)</li>
+                            <li><code>Data/data.csv</code></li>
+                        </ul>
+                    </li>
+                    <li>Verify all dependencies are installed: <code>pip install -r requirements.txt</code></li>
+                    <li>Check the server logs for detailed error messages</li>
+                </ol>
+            </div>
+            
+            <a href="/" style="display: inline-block; margin-top: 32px; padding: 12px 24px; background: #2563eb; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+                ← Back to Home
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+
+{% block title %}UKT Prediction System - Indonesian Public University Tuition Fees{% endblock %}
+
+{% block head_extra %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container main-content">
+        <nav class="page-nav" aria-label="On-page Navigation">
+            <a href="#overview" class="active">Overview</a>
+            <a href="#predict">Predict</a>
+            <a href="#results">Results</a>
+            <a href="#insights">Insights</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <section class="hero-section" id="hero">
+            <div class="hero-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>AI-Powered Predictions</span>
+            </div>
+            
+            <h2>Predict Your University Tuition Fees</h2>
+            <p>Get accurate predictions for all 11 UKT tiers using state-of-the-art machine learning with 96.2% accuracy and conformal prediction intervals</p>
+            <div class="hero-actions">
+                <a href="#predictionForm" class="btn-hero-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    Start Prediction
+                </a>
+                <a href="/documentation" class="btn-hero-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    View API Docs
+                </a>
+            </div>
+            <div class="stats-row section" id="overview">
+                <div class="stat-card">
+                    <svg class="stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <div class="stat-value">96.2%</div>
+                    <div class="stat-label">R² Score Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <div class="stat-value">7.96%</div>
+                    <div class="stat-label">Mean Error Rate</div>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <div class="stat-value">CatBoost</div>
+                    <div class="stat-label">ML Algorithm</div>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10"></path>
+                        <path d="M12 20V4"></path>
+                        <path d="M6 20v-6"></path>
+                    </svg>
+                    <div class="stat-value">88.91%</div>
+                    <div class="stat-label">Confidence Coverage</div>
+                </div>
+            </div>
+    </section>
+
+    <section class="two-column-layout section" id="predict">
+            <div class="input-section">
+                <div class="card">
+                    <div class="card-header-icon">
+                        <div class="icon-circle">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Input Your Details</h3>
+                            <p class="card-subtitle">Select your university and program information</p>
+                        </div>
+                    </div>
+                    
+                    <form id="predictionForm">
+                        <div class="form-group">
+                            <label for="university">University <span class="required">*</span></label>
+                            <select id="university" name="Universitas" required>
+                                <option value="">Select University</option>
+                                {% for uni in dropdowns.universities %}
+                                <option value="{{ uni }}">{{ uni }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program">Program Level <span class="required">*</span></label>
+                            <select id="program" name="Program" required>
+                                <option value="">Select Program Level</option>
+                                {% for prog in dropdowns.programs %}
+                                <option value="{{ prog }}">{{ prog }}</option>
+                                {% endfor %}
+                            </select>
+                            <small>D3 (Diploma 3), D4 (Applied Bachelor), S1 (Bachelor)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="year">Academic Year <span class="required">*</span></label>
+                            <select id="year" name="Tahun" required>
+                                <option value="">Select Year</option>
+                                {% for year in dropdowns.years %}
+                                <option value="{{ year }}" {% if '2025/2026' in year %}selected{% endif %}>{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="admission">Admission Method <span class="required">*</span></label>
+                            <select id="admission" name="Penerimaan" required>
+                                <option value="">Select Admission Method</option>
+                                {% for adm in dropdowns.admissions %}
+                                <option value="{{ adm }}">{{ adm }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="study_program">Study Program <span class="required">*</span></label>
+                            <input type="text" id="study_program_search" placeholder="Search study program..." autocomplete="off">
+                            <select id="study_program" name="Program_Studi" required size="8">
+                                {% for sp in dropdowns.study_programs %}
+                                <option value="{{ sp }}">{{ sp }}</option>
+                                {% endfor %}
+                            </select>
+                            <small>Start typing to filter programs</small>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="predictBtn">
+                            <span id="btnText">🔮 Predict Tuition Fees</span>
+                            <span id="btnLoading" style="display: none;">
+                                <span class="spinner"></span> Predicting...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="results-section section" id="results">
+                <div class="card" id="resultsCard" style="display: none;">
+                    <h3>Prediction Results</h3>
+                    <p class="card-subtitle">Predicted UKT fees for all 11 tiers</p>
+                    
+                    <div id="inputSummary" class="input-summary"></div>
+                    
+                    <div id="predictionResults" class="results-grid"></div>
+                    
+                    <div id="insights" class="section-sub">
+                        <h4 class="section-title">Insights</h4>
+                        <div class="chart-container">
+                            <canvas id="predictionChart"></canvas>
+                        </div>
+                        <div class="info-box">
+                            <strong>📊 About Prediction Intervals:</strong>
+                            <p>The shaded areas represent 90% confidence intervals computed using conformal prediction. This means we expect the true value to fall within this range 90% of the time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card placeholder-card" id="placeholderCard">
+                    <div class="placeholder-content">
+                        <div class="placeholder-icon-wrapper">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="9" y1="9" x2="15" y2="9"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                                <polyline points="12 3 12 9 15 12 12 15 12 21"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Ready to Predict</h3>
+                        <p>Complete the form and click the predict button to view your personalized UKT fee predictions with confidence intervals.</p>
+                        <div class="placeholder-features">
+                            <h4>Your Results Will Include:</h4>
+                            <ul>
+                                <li>Comprehensive predictions for all 11 UKT tiers</li>
+                                <li>90% confidence intervals using conformal prediction</li>
+                                <li>Interactive chart visualization</li>
+                                <li>Detailed fee range analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq">
+            <div class="card">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-list">
+                    <details>
+                        <summary>What are UKT tiers?</summary>
+                        <p>UKT (Uang Kuliah Tunggal) tiers 1–11 are standardized tuition fee categories in Indonesian public universities. Tier 1 is the lowest fee and Tier 11 the highest.</p>
+                    </details>
+                    <details>
+                        <summary>How accurate are the predictions?</summary>
+                        <p>The model achieves an overall R² score of about 96.2% on evaluation data. We also provide 90% conformal prediction intervals when available.</p>
+                    </details>
+                    <details>
+                        <summary>Do I need all inputs?</summary>
+                        <p>Yes, university, program level, academic year, admission method, and study program are required to produce reliable predictions.</p>
+                    </details>
+                    <details>
+                        <summary>Why don’t I see intervals?</summary>
+                        <p>Intervals appear when conformal predictors are available for the current model and inputs. If not available, you’ll still receive point predictions.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+
+{% block title %}Documentation - UKT Prediction System{% endblock %}
+
+{% block content %}
+    <div class="container content-page">
+        <h1>Documentation</h1>
+        
+        <p>Complete documentation for using the UKT Prediction System and understanding the underlying research.</p>
+
+        <h2>🚀 Getting Started</h2>
+
+        <h3>Using the Web Application</h3>
+        
+        <ol>
+            <li><strong>Navigate to the Home Page:</strong> Go to the main prediction page</li>
+            <li><strong>Fill in the Form:</strong> Select your university, program level, academic year, admission method, and study program</li>
+            <li><strong>Click Predict:</strong> Click the "Predict Tuition Fees" button to get predictions</li>
+            <li><strong>View Results:</strong> See predictions for all 11 UKT tiers with confidence intervals and visualizations</li>
+        </ol>
+
+        <h3>Input Features</h3>
+
+        <div class="card" style="margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #f8fafc;">
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e2e8f0;">Feature</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e2e8f0;">Description</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e2e8f0;">Example Values</th>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>Universitas</code></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">University name</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">UGM, UI, ITB, IPB, etc.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>Program</code></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Program level</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">D3, D4, S1</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>Tahun</code></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Academic year</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">2025/2026</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><code>Penerimaan</code></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Admission method</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">SNBP/SNBT</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px;"><code>Program_Studi</code></td>
+                    <td style="padding: 12px;">Study program/major</td>
+                    <td style="padding: 12px;">Medicine, Engineering, etc.</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Output: UKT Tiers</h3>
+
+        <p>The system predicts tuition fees for all 11 UKT tiers:</p>
+
+        <ul>
+            <li><strong>UKT-1:</strong> Lowest tier (often subsidized or free)</li>
+            <li><strong>UKT-2 to UKT-10:</strong> Progressive middle tiers</li>
+            <li><strong>UKT-11:</strong> Highest tier</li>
+        </ul>
+
+        <p>Each prediction includes:</p>
+        <ul>
+            <li>Point estimate (most likely value)</li>
+            <li>90% confidence interval (lower and upper bounds)</li>
+            <li>Interactive visualization</li>
+        </ul>
+
+        <h2>🔧 API Endpoints</h2>
+
+        <p>For developers who want to integrate the prediction system:</p>
+
+        <h3>POST /api/predict</h3>
+
+        <div class="card" style="margin: 24px 0; background: #f8fafc;">
+            <p><strong>Description:</strong> Get UKT predictions for given input features</p>
+            
+            <p><strong>Request Body (JSON):</strong></p>
+            <pre>{
+  "Universitas": "UGM",
+  "Program": "S1",
+  "Tahun": "2025/2026",
+  "Penerimaan": "SNBP/SNBT",
+  "Program_Studi": "Teknik Informatika"
+}</pre>
+
+            <p><strong>Response (JSON):</strong></p>
+            <pre>{
+  "success": true,
+  "predictions": {
+    "UKT-1": {
+      "value": 500000,
+      "formatted": "Rp 500,000",
+      "lower": 450000,
+      "upper": 550000,
+      "lower_formatted": "Rp 450,000",
+      "upper_formatted": "Rp 550,000"
+    },
+    ...
+  },
+  "has_intervals": true
+}</pre>
+        </div>
+
+        <h3>GET /api/model-info</h3>
+
+        <div class="card" style="margin: 24px 0; background: #f8fafc;">
+            <p><strong>Description:</strong> Get information about the model</p>
+            
+            <p><strong>Response (JSON):</strong></p>
+            <pre>{
+  "model_type": "CatBoost",
+  "model_name": "Gradient Boosted Trees",
+  "num_outputs": 11,
+  "performance": {
+    "R2": 0.9620,
+    "RMSE": "1.102M IDR",
+    "MAE": "449.5K IDR",
+    "MAPE": "7.96%"
+  },
+  "conformal_available": true
+}</pre>
+        </div>
+
+        <h3>GET /api/health</h3>
+
+        <div class="card" style="margin: 24px 0; background: #f8fafc;">
+            <p><strong>Description:</strong> Check if the API is running and models are loaded</p>
+            
+            <p><strong>Response (JSON):</strong></p>
+            <pre>{
+  "status": "healthy",
+  "model_loaded": true,
+  "preprocessor_loaded": true,
+  "conformal_loaded": true
+}</pre>
+        </div>
+
+        <h2>📊 Model Performance</h2>
+
+        <p>The web application uses the <strong>CatBoost</strong> model, which achieved the best performance in our comparative study:</p>
+
+        <div class="card" style="margin: 24px 0;">
+            <h3>Evaluation Metrics</h3>
+            <ul>
+                <li><strong>R² Score:</strong> 0.9620 (explains 96.2% of variance)</li>
+                <li><strong>RMSE:</strong> 1.102M IDR (Root Mean Squared Error)</li>
+                <li><strong>MAE:</strong> 449.5K IDR (Mean Absolute Error)</li>
+                <li><strong>MAPE:</strong> 7.96% (Mean Absolute Percentage Error)</li>
+                <li><strong>Pearson r:</strong> 0.9809 (correlation with actual values)</li>
+                <li><strong>Interval Coverage:</strong> 88.91% (close to 90% target)</li>
+            </ul>
+        </div>
+
+        <h2>🧪 Uncertainty Quantification</h2>
+
+        <h3>Conformal Prediction</h3>
+
+        <p>The system uses <strong>split conformal prediction</strong> to provide distribution-free prediction intervals:</p>
+
+        <ul>
+            <li><strong>Coverage Target:</strong> 90% (α = 0.1)</li>
+            <li><strong>Method:</strong> Split conformal with shared calibration across outputs</li>
+            <li><strong>Interpretation:</strong> We expect the true value to fall within the predicted interval 90% of the time</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Why Confidence Intervals Matter:</strong>
+            <p>Point predictions alone don't tell the full story. Confidence intervals provide a range of plausible values, helping you understand the uncertainty in the prediction and make better-informed decisions.</p>
+        </div>
+
+        <h2>💻 Running Locally</h2>
+
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>Python 3.11+</li>
+            <li>pip (Python package manager)</li>
+            <li>Git</li>
+        </ul>
+
+        <h3>Installation</h3>
+
+        <div class="card" style="margin: 24px 0; background: #f8fafc;">
+            <pre># 1. Clone the repository
+git clone https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction.git
+cd RF-vs-GB-for-UKT-PTN-Prediction
+
+# 2. Create virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # Linux/Mac
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Train models (if not already trained)
+python src/main.py
+
+# 5. Run web application
+cd webapp
+python app.py
+
+# 6. Access at http://localhost:5000</pre>
+        </div>
+
+        <h2>📚 Research Documentation</h2>
+
+        <p>For detailed research methodology, literature review, and results analysis, please refer to:</p>
+
+        <ul>
+            <li><strong>Full Research Paper:</strong> <code>docs/RESEARCH_DOCUMENTATION.md</code> in the repository</li>
+            <li><strong>GitHub Repository:</strong> <a href="https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction" target="_blank">RF-vs-GB-for-UKT-PTN-Prediction</a></li>
+            <li><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17504815" target="_blank">10.5281/zenodo.17504815</a></li>
+        </ul>
+
+        <h2>🐛 Troubleshooting</h2>
+
+        <h3>Common Issues</h3>
+
+        <div class="card" style="margin: 24px 0;">
+            <h4>Model Not Loaded</h4>
+            <p><strong>Error:</strong> "Model not loaded. Please check server logs."</p>
+            <p><strong>Solution:</strong> Ensure you've trained the models first by running <code>python src/main.py</code> from the project root.</p>
+        </div>
+
+        <div class="card" style="margin: 24px 0;">
+            <h4>Unknown Value Error</h4>
+            <p><strong>Error:</strong> "Unknown value for [field]"</p>
+            <p><strong>Solution:</strong> The selected value is not in the training dataset. Please choose from the available dropdown options.</p>
+        </div>
+
+        <div class="card" style="margin: 24px 0;">
+            <h4>Import Errors</h4>
+            <p><strong>Error:</strong> "ModuleNotFoundError: No module named 'flask'"</p>
+            <p><strong>Solution:</strong> Install Flask: <code>pip install flask</code> or install all dependencies: <code>pip install -r requirements.txt</code></p>
+        </div>
+
+        <h2>📞 Support</h2>
+
+        <p>For questions, issues, or contributions:</p>
+
+        <ul>
+            <li><strong>GitHub Issues:</strong> <a href="https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction/issues" target="_blank">Report an Issue</a></li>
+            <li><strong>Repository:</strong> <a href="https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction" target="_blank">View Source Code</a></li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 48px;">
+            <strong>Contributing:</strong>
+            <p>This is an open-source project licensed under MIT. Contributions, bug reports, and feature requests are welcome! Please visit our GitHub repository to get involved.</p>
+        </div>
+    </div>
+
+{% endblock %}
