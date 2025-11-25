@@ -2,7 +2,7 @@
 
 Professional web interface for the UKT (Uang Kuliah Tunggal) Prediction System - Indonesian Public University Tuition Fee Predictor.
 
-## 🌟 Features
+## Features
 
 - **Interactive Prediction Interface**: User-friendly form for inputting university and program details
 - **Real-time Predictions**: Get instant predictions for all 11 UKT tiers
@@ -12,7 +12,7 @@ Professional web interface for the UKT (Uang Kuliah Tunggal) Prediction System -
 - **RESTful API**: JSON API endpoints for programmatic access
 - **Professional Styling**: Clean, modern design with Inter font family
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -35,7 +35,7 @@ python app.py
 # Navigate to: http://localhost:5000
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 webapp/
@@ -55,7 +55,7 @@ webapp/
     └── (future API modules)
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### POST /api/predict
 
@@ -97,7 +97,7 @@ Get model information and performance metrics.
 
 Health check endpoint.
 
-## 🎨 Features in Detail
+## Features in Detail
 
 ### 1. Smart Study Program Search
 
@@ -127,7 +127,7 @@ Health check endpoint.
 - Inter font family for clean typography
 - Accessible form controls
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**: Flask 3.1.0
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
@@ -136,14 +136,14 @@ Health check endpoint.
 - **ML Framework**: scikit-learn, CatBoost
 - **Data Processing**: pandas, numpy
 
-## 📊 Model Information
+## Model Information
 
 - **Model Type**: CatBoost (Gradient Boosted Trees)
 - **Performance**: R² = 0.9620, MAPE = 7.96%
 - **Outputs**: 11 UKT tiers (UKT-1 to UKT-11)
 - **Uncertainty**: Conformal prediction intervals
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -167,7 +167,7 @@ The application looks for trained models in:
 - `../models/catboost_conformal.pkl` (conformal predictors)
 - `../Data/data.csv` (training data for label encoders)
 
-## 🧪 Testing
+## Testing
 
 Test the API endpoints:
 
@@ -190,7 +190,7 @@ curl -X POST http://localhost:5000/api/predict \
   }'
 ```
 
-## 🚢 Deployment
+## Deployment
 
 ### Production Deployment
 
@@ -224,14 +224,14 @@ EXPOSE 5000
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "webapp.app:app"]
 ```
 
-## 📚 Documentation
+## Documentation
 
 - **User Guide**: Visit `/documentation` in the web app
 - **About**: Visit `/about` for project information
 - **Full Research**: See `docs/RESEARCH_DOCUMENTATION.md` in project root
 - **GitHub**: [RF-vs-GB-for-UKT-PTN-Prediction](https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction)
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -258,26 +258,26 @@ python app.py --port 8000
 # Or modify app.py: app.run(port=8000)
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License. See LICENSE file in the project root.
 
-## 👨‍💻 Author
+## Author
 
 **Lyon Ambrosio Djuanda**
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Dataset**: Irvi Aini - UKT PTN Indonesia (Kaggle)
 - **ML Libraries**: scikit-learn, CatBoost, XGBoost, LightGBM
 - **Web Framework**: Flask
 - **Visualization**: Chart.js
 
-## 📞 Support
+## Support
 
 - **GitHub**: [Issues](https://github.com/lyonad/RF-vs-GB-for-UKT-PTN-Prediction/issues)
 - **DOI**: [10.5281/zenodo.17504815](https://doi.org/10.5281/zenodo.17504815)
 
 ---
 
-**Built with ❤️ for Indonesian Higher Education**
+**Built for Indonesian Higher Education**

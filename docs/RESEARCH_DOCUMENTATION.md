@@ -1081,14 +1081,14 @@ This research provides:
 
 ## Appendix D: Reproducibility Checklist
 
-✅ **Data**: Available publicly on Kaggle (https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3) under MIT License
-✅ **Code**: Complete source in `src/` directory
-✅ **Random Seeds**: Fixed at 42 for all stochastic processes
-✅ **Environment**: Specified in `requirements.txt`
-✅ **Results**: Saved in `results/` directory
-✅ **Models**: Trained models in `models/` directory
-✅ **Visualizations**: All plots in `results/visualizations/`
-✅ **Documentation**: This file and `README.md`
+- **Data**: Available publicly on Kaggle (https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3) under MIT License
+- **Code**: Complete source in `src/` directory
+- **Random Seeds**: Fixed at 42 for all stochastic processes
+- **Environment**: Specified in `requirements.txt`
+- **Results**: Saved in `results/` directory
+- **Models**: Trained models in `models/` directory
+- **Visualizations**: All plots in `results/visualizations/`
+- **Documentation**: This file and `README.md`
 
 ### Data Access
 

@@ -17,7 +17,7 @@ function initializeHealthCheck() {
     fetch('/api/health')
         .then(response => response.json())
         .then(data => {
-            console.log('✓ API Status:', data.status);
+            console.log('API Status:', data.status);
             const dot = document.getElementById('apiStatusDot');
             const text = document.getElementById('apiStatusText');
             if (dot && text) {
@@ -33,7 +33,7 @@ function initializeHealthCheck() {
             }
         })
         .catch(error => {
-            console.error('⚠ API Health Check Failed:', error);
+            console.error('Warning: API Health Check Failed:', error);
             const dot = document.getElementById('apiStatusDot');
             const text = document.getElementById('apiStatusText');
             if (dot && text) {
@@ -177,7 +177,7 @@ function displayResults(result, formData) {
     
     // Display input summary
     inputSummary.innerHTML = `
-        <h4>📝 Input Summary</h4>
+        <h4>Input Summary</h4>
         <p><strong>University:</strong> ${formData.Universitas}</p>
         <p><strong>Program:</strong> ${formData.Program}</p>
         <p><strong>Year:</strong> ${formData.Tahun}</p>

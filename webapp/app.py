@@ -41,15 +41,15 @@ def load_models():
             raise FileNotFoundError(f"Model not found: {model_path}")
         
         model = joblib.load(model_path)
-        print(f"✓ Loaded CatBoost model from {model_path}")
+        print(f"Loaded CatBoost model from {model_path}")
         
         # Load conformal predictors (may not exist)
         cp_path = parent_dir / 'models' / 'catboost_conformal.pkl'
         if cp_path.exists():
             conformal_predictors = joblib.load(cp_path)
-            print(f"✓ Loaded conformal predictors from {cp_path}")
+            print(f"Loaded conformal predictors from {cp_path}")
         else:
-            print("⚠ Conformal predictors not found, prediction intervals unavailable")
+            print("Warning: Conformal predictors not found, prediction intervals unavailable")
         
         # Load data to get label encoders
         data_path = parent_dir / 'Data' / 'data.csv'
@@ -71,14 +71,14 @@ def load_models():
         scaler = StandardScaler()
         scaler.fit(X)
         
-        print(f"✓ Loaded preprocessor with {len(feature_names)} features")
-        print(f"✓ Available label encoders: {list(label_encoders.keys())}")
-        print(f"✓ Scaler fitted on {len(X)} samples")
+        print(f"Loaded preprocessor with {len(feature_names)} features")
+        print(f"Available label encoders: {list(label_encoders.keys())}")
+        print(f"Scaler fitted on {len(X)} samples")
         
         return True
         
     except Exception as e:
-        print(f"✗ Error loading models: {e}")
+        print(f"Error loading models: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -229,11 +229,11 @@ if __name__ == '__main__':
     
     # Load models
     if load_models():
-        print("\n✓ All models loaded successfully")
+        print("\nAll models loaded successfully")
         print("\nStarting Flask server...")
         print("Access the application at: http://localhost:5000")
         print("=" * 60)
         app.run(debug=True, host='0.0.0.0', port=5000)
     else:
-        print("\n✗ Failed to load models. Please check the error messages above.")
+        print("\nFailed to load models. Please check the error messages above.")
         sys.exit(1)
