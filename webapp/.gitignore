@@ -12,9 +12,6 @@ instance/
 
 # Environment
 .env
-.venv
-env/
-venv/
 
 # IDE
 .vscode/

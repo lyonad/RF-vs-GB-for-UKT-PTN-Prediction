@@ -105,20 +105,16 @@ UKT-PTN/
    cd RF-vs-GB-for-UKT-PTN-Prediction
    ```
 
-2. Run the setup script to create the virtual environment and install dependencies:
+2. Run the setup script to install dependencies:
    ```bash
    setup.bat
    ```
    
    This will:
-   - Create a virtual environment (.venv)
-   - Activate the virtual environment
    - Install all required packages from requirements.txt
 
-3. Alternatively, you can manually create the virtual environment:
+3. Alternatively, you can manually install dependencies:
    ```bash
-   python -m venv .venv
-   .venv\Scripts\activate
    pip install --upgrade pip
    pip install -r requirements.txt
    ```

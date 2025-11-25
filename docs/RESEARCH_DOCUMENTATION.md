@@ -466,7 +466,7 @@ To ensure fair comparison, all models:
 ### 4.8 Implementation Details
 
 - **Language**: Python 3.11.9
-- **Environment**: Virtual environment (venv)
+- **Environment**: Python environment
 - **Key Libraries**:
   - scikit-learn 1.7.2
   - xgboost 3.1.1
@@ -1117,15 +1117,10 @@ Kaggle. https://www.kaggle.com/datasets/irvifa/ukt-ptn-indonesia-s1-d4-d3
 git clone <repository-url>
 cd UKT-PTN
 
-# 2. Create virtual environment
-python -m venv .venv
-.venv\Scripts\activate  # Windows
-# source .venv/bin/activate  # Linux/Mac
-
-# 3. Install dependencies
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 4. Run full pipeline
+# 3. Run full pipeline
 python src/main.py
 
 # 5. Check results
